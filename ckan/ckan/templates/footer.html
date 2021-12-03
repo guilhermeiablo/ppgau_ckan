@@ -1,0 +1,35 @@
+<footer class="site-footer">
+  <div class="container">
+    {% block footer_content %}
+    <div class="row">
+      <div class="col-md-8 footer-links">
+        {% block footer_nav %}
+          <ul class="list-unstyled">
+            {% block footer_links %}
+              <li><a href="http://www.ppgau.uff.br/site/">PPGAU UFF</a></li>
+            {% endblock %}
+          </ul>
+          <ul class="list-unstyled" style="font-size:12px">
+            {% block footer_links_ckan %}
+              {% set api_url = 'http://docs.ckan.org/en/{0}/api/'.format(g.ckan_doc_version) %}
+              <li><a href="{{ api_url }}">{{ _('CKAN API') }}</a></li>
+	      <li>Desenvolvido por <a href="http://plano-c.com/">Plano C</a></li>
+            {% endblock %}
+          </ul>
+        {% endblock %}
+      </div>
+      <div class="col-md-4 attribution">
+        {% block footer_lang %}
+          {% snippet "snippets/language_selector.html" %}
+        {% endblock %}
+      </div>
+    </div>
+    {% endblock %}
+  </div>
+
+  {% block footer_debug %}
+    {% if g.debug %}
+      {% include 'snippets/debug.html' %}
+    {% endif %}
+  {% endblock %}
+</footer>

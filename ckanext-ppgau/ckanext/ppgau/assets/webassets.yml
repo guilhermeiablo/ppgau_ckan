@@ -1,0 +1,14 @@
+# ppgau-js:
+#   filter: rjsmin
+#   output: ckanext-ppgau/%(version)s-ppgau.js
+#   contents:
+#     - js/ppgau.js
+#   extra:
+#     preload:
+#       - base/main
+
+# ppgau-css:
+#   filter: cssrewrite
+#   output: ckanext-ppgau/%(version)s-ppgau.css
+#   contents:
+#     - css/ppgau.css

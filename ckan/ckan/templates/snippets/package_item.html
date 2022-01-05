@@ -17,6 +17,9 @@ Example:
 {% set truncate_title = truncate_title or 80 %}
 {% set title = package.title or package.name %}
 {% set notes = h.markdown_extract(package.notes, extract_length=truncate) %}
+{% set municipio = package.municipio %}
+{% set estado = package.estado %}
+{% set extent = package.extent %}
 
 {% block package_item %}
   <li class="{{ item_class or "dataset-item" }}">
@@ -34,6 +37,24 @@ Example:
             {% endblock %}
             {% block heading_title %}
 		{{ h.link_to(h.truncate(title, truncate_title), h.url_for('%s.read' % package.type, id=package.name)) }}
+            {% endblock %}
+
+            {% block localizacao %}
+	      </br><p class="localizacao">
+	      {% if extent == 'municipios' %}
+	        Brasil (municípios)
+	      {% endif %}
+	      {% if extent == 'brasil' %}
+	        Brasil
+	      {% endif %}
+	      {% if extent == 'estados' %}
+	        Brasil (estados)
+	      {% endif %}
+	      {{ estado }}
+	      {% if municipio %} | {% endif %}
+	      {{ municipio }}
+	      </p>
+
             {% endblock %}
             {% block heading_meta %}
               {% if package.get('state', '').startswith('draft') %}

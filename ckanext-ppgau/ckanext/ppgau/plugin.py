@@ -37,6 +37,11 @@ class PpgauPlugin(plugins.SingletonPlugin):
 
     def group_facets(self, facets_dict, group_type, package_type):
         facets_dict['groups'] = toolkit._('Grupos')
+        facets_dict['municipio'] = toolkit._('Município')
+        facets_dict['estado'] = toolkit._('Estado')
+        facets_dict['extent'] = toolkit._('Abrangência')
+        facets_dict['database'] = toolkit._('Base de dados')
+        facets_dict['date'] = toolkit._('Ano')
         return facets_dict
 
     # Declare that this plugin will implement ITemplateHelpers.

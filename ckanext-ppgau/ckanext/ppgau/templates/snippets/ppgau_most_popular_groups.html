@@ -9,7 +9,7 @@ groups - the list of groups to render
 <ul style="list-style-type:none; padding-top:30px; padding-left:0px" class="row text-center">
   {% for group in groups %}
     <li style="float:left;  width:10%; min-width:10%; max-width:10%" class="col-sm">
-	    <a style="display:block; align:center" href="{{ h.url_for('group_read', id=group.name) }}"><img src={{ group.image_display_url }} ></a>
+	    <a style="display:block; align:center" href="{{ h.url_for('group_read', id=group.name) }}"><img src={{ group.image_display_url }} class="icones" ></a>
       <a style="display:block" href="{{ h.url_for('group_read', id=group.name) }}">
         <p style="color:white; text-align: center;font-size:12px; margin-top:5px">{{ group.display_name }}</p>
       </a>
